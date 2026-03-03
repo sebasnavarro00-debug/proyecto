@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna no me gusta estar peleados</title>
+    <style>
+        * { box-sizing: border-box; margin:0; padding:0; }
+        body {
+            height: 100vh;
+            background: #000;
+            background-image:
+                radial-gradient(circle, #555 1px, transparent 1px),
+                radial-gradient(circle, #777 1px, transparent 1px),
+                linear-gradient(90deg, #000, #001);
+            background-size: 20px 20px, 50px 50px, 100% 100%;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+        #moon {
+            position: absolute;
+            right: 15%;
+            bottom: 10%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle at 30% 30%, #eee 30%, #aaa 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 20px 5px rgba(255,255,255,0.3);
+            opacity: 0.9;
+        }
+        h1 {
+            font-size: 3em;
+            animation: glow 2s infinite;
+        }
+        #subtitle {
+            font-size: 1.5em;
+            color: #ffd700;
+            text-shadow: 0 0 5px #fff, 0 0 10px #ffd700;
+            animation: bounceText 3s ease-in-out infinite;
+            margin-top: 10px;
+        }
+        @keyframes bounceText {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes glow {
+            0%,100% { text-shadow: 0 0 10px #fff,0 0 20px #f0f,0 0 30px #ff0; }
+            50% { text-shadow: 0 0 20px #fff,0 0 40px #f0f,0 0 60px #ff0; }
+        }
+        button {
+            padding: 12px 24px;
+            margin: 10px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        #no {
+            animation: shake 0.5s infinite;
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(-5px); }
+            40% { transform: translateX(5px); }
+            60% { transform: translateX(-5px); }
+            80% { transform: translateX(5px); }
+            100% { transform: translateX(0); }
+        }
+        #extraButton { display: none; }
+        #finalMessage {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 500px;
+        }
+        #finalMessage img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="moon"></div>
+    <div id="content">
+        <h1>🌙✨ Luna no me gusta estar peleados ✨🌙</h1>
+        <p id="subtitle">Podemos dejar de estar así, me duele estar así</p>
+        <div id="buttons">
+            <button id="si">Si</button>
+            <button id="no">No</button>
+        </div>
+        <button id="extraButton">En serio me amas?</button>
+    </div>
+    <div id="finalMessage">
+        <img src="https://preview.redd.it/hornet-and-the-knight-eating-arepas-by-me-v0-r2tqiwabikqf1.png?width=1080&crop=smart&auto=webp&s=3b9e58d4e00a303ce7260e0750784a8182b9d0e9" alt="Imagen romántica">
+        <p>Juguemos, te amo demasiado y me duele como no tienes idea que estemos asi.</p>
+    </div>
+    <script>
+        document.getElementById('si').addEventListener('click', function() {
+            document.getElementById('extraButton').style.display = 'inline-block';
+        });
+        document.getElementById('extraButton').addEventListener('click', function() {
+            document.getElementById('finalMessage').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
